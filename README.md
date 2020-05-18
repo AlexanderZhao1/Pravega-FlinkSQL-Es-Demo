@@ -106,7 +106,7 @@ Finally, you can use the following command to stop all the containers.
 
 1.Download Flink 1.10.0 ：https://www.apache.org/dist/flink/flink-1.10.0/flink-1.10.0-bin-scala_2.12.tgz
 
-2.`cd flink-1.10.0`
+2.unzip and `cd flink-1.10.0-bin-scala_2.12`
 
 3.Download the following jars and copy them to lib/
 ```
@@ -115,11 +115,9 @@ wget -P ./lib/ https://repo1.maven.org/maven2/org/apache/flink/flink-json/1.10.0
 wget -P ./lib/ https://repo1.maven.org/maven2/org/apache/flink/flink-sql-connector-elasticsearch6_2.12/1.10.0/flink-sql-connector-elasticsearch6_2.12-1.10.0.jar | \
 wget -P ./lib/ https://repo1.maven.org/maven2/org/apache/flink/flink-jdbc_2.12/1.10.0/flink-jdbc_2.12-1.10.0.jar | \
 wget -P ./lib/ https://repo1.maven.org/maven2/mysql/mysql-connector-java/5.1.48/mysql-connector-java-5.1.48.jar
+wget -P ./lib/ http://oss.jfrog.org/jfrog-dependencies/io/pravega/pravega-connectors-flink-1.10_2.12/0.8.0-53.b9ececb-SNAPSHOT/pravega-connectors-flink-1.10_2.12-0.8.0-53.b9ececb-20200407.114946-1.jar
 
 ```
-**TODO**
-Add Flink pravega connector jar URL. 写作本文时候bugfix版本仍未发布。
-
 4.Modify ` taskmanager.numberOfTaskSlots` as 10 in `conf/flink-conf.yaml` since we will launch multiple tasks in Flink.
 
 5.`./bin/start-cluster.sh` start the Flink cluster.
